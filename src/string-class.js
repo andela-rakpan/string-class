@@ -62,6 +62,16 @@ const StringClassExtention = {
   isQuestion(){
     const questionRegex = /\?$/;
     return questionRegex.test(this);
+  }, 
+
+  /**
+  * words
+  * Return a list of the words in the string, as an Array
+  * @return {Object} Array of words
+  */
+  words(){
+    const wordsRegex = /\w+/g;
+    return this.match(wordsRegex);
   }
 
 }
