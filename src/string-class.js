@@ -98,6 +98,26 @@ const StringClassExtention = {
       }
     });
     return inverseCase;
+  }, 
+
+  /**
+  * alternatingCase
+  * Converts each characters to alternating character cases
+  * @return {String} Alternating characters of the string
+  */
+  alternatingCase(){
+    const alphabetRegex = /[a-z]/gi;
+    let alternate = true;
+    const alternateCase = this.replace(alphabetRegex, (alphabet)=> {
+      if(alternate){
+        alternate = !alternate;
+        return alphabet.toLower();
+      } else {
+        alternate = !alternate;
+        return alphabet.toUpper();
+      }
+    });
+    return alternateCase;
   }
 }
 
