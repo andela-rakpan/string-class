@@ -66,23 +66,39 @@ const StringClassExtention = {
 
   /**
   * words
-  * Returns a list of the words in a string, as an Array
-  * @return {Object} Array of words
+  * Extracts the list of the words in a string, and return as an Array
+  * @return {Object} Array of words in a string
   */
   words(){
-    const wordsRegex = /[A-Za-z]+/g;
+    const wordsRegex = /[a-z]+/gi;
     return this.match(wordsRegex);
   }, 
 
   /**
   * wordCount
-  * Returns the number of words in the string
-  * @return {Number} Number of words
+  * Counts the number of words in a string
+  * @return {Number} Number of words in a string
   */
   wordCount(){
     return this.words().length;
-  }
+  }, 
 
+  /**
+  * inverseCase
+  * Converts each letter to the inverse of its current case
+  * @return {String} inverse characters of the string
+  */
+  inverseCase(){
+    const alphabetRegex = /[a-z]/gi;
+    const inverseCase = this.replace(alphabetRegex, (alphabet)=> {
+      if (alphabet === alphabet.toUpper()) {
+        return alphabet.toLower();
+      } else{
+        return alphabet.toUpper();
+      }
+    });
+    return inverseCase;
+  }
 }
 
 Object.assign(String.prototype, StringClassExtention);
