@@ -109,7 +109,7 @@ const StringClassExtention = {
     const alphabetRegex = /[a-z]/gi;
     let alternate = true;
     const alternateCase = this.replace(alphabetRegex, (alphabet)=> {
-      if(alternate){
+      if (alternate) {
         alternate = !alternate;
         return alphabet.toLower();
       } else {
@@ -118,6 +118,21 @@ const StringClassExtention = {
       }
     });
     return alternateCase;
+  }, 
+
+  /**
+  * getMiddle
+  * Determines the character(s) in the middle of a string
+  * @return {String} The middle character(s) in a string
+  */
+  getMiddle(){
+    const count = this.length;
+    const mid = Math.floor(count / 2);
+    if ( count  % 2 === 0) {
+      return this[mid - 1] + this[mid];
+    } else {
+      return this[mid];
+    }
   }
 }
 
