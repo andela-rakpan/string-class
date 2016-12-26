@@ -66,12 +66,21 @@ const StringClassExtention = {
 
   /**
   * words
-  * Return a list of the words in the string, as an Array
+  * Returns a list of the words in a string, as an Array
   * @return {Object} Array of words
   */
   words(){
-    const wordsRegex = /\w+/g;
+    const wordsRegex = /[A-Za-z]+/g;
     return this.match(wordsRegex);
+  }, 
+
+  /**
+  * wordCount
+  * Returns the number of words in the string
+  * @return {Number} Number of words
+  */
+  wordCount(){
+    return this.words().length;
   }
 
 }

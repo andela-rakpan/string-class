@@ -114,9 +114,9 @@ describe('words', ()=> {
   });
 
   it('should extract words only and leave out special characters', ()=> {
-    const sentence = 'This ?is !Andela';
+    const sentence = 'This ?is _ !Andela';
     const result = ['This', 'is', 'Andela'];
-    const errorMessage = `'This ?is !Andela' should return 
+    const errorMessage = `'This ?is _ !Andela' should return 
                     '[This', 'is', 'Andela']`;
     assert.equal(sentence.words(), `${result}`, errorMessage);
   });
