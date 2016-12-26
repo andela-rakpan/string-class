@@ -25,6 +25,20 @@ const StringClassExtention = {
       return String.fromCharCode( charCode - 32 );
     });
     return upperCase;
+  },
+
+  /**
+  * toLower
+  * Converts all characters to lowercase characters
+  * @return {String} Lowercase characters
+  */
+  toLower(){
+    const upperCaseRegex = /[A-Z]/g;
+    let lowerCase = this.replace(upperCaseRegex, (character)=> {
+      const charCode = character.charCodeAt(0);
+      return String.fromCharCode( charCode + 32 );
+    });
+    return lowerCase;
   }
 
 }
