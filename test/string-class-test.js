@@ -82,3 +82,23 @@ describe('ucFirst', ()=> {
   });
 });
 
+// Test suite for method isQuestion
+describe('isQuestion', ()=> {
+  it('should return true if the string is a question', ()=> {
+    const question = 'Are you Human?';
+    const errorMessage = `'Are you Human?' should return true`;
+    assert.equal(question.isQuestion(), true, errorMessage);
+  });
+
+  it('should return false if the string is not a valid question', ()=> {
+    const invalidQuestion = 'Are you? Human';
+    const errorMessage = `'Are you? Human' should return false`;
+    assert.equal(invalidQuestion.isQuestion(), false, errorMessage);
+  });
+
+  it('should return a boolean result', ()=> {
+    const word = 'Andela';
+    const errorMessage = 'Result should be a boolean value';
+    assert.typeOf(word.isQuestion(), 'boolean', errorMessage);
+  });
+});
