@@ -280,3 +280,24 @@ describe('numberWords', ()=> {
     assert.typeOf(number.numberWords(), 'string', errorMessage);
   });
 });
+
+// Test suite for method isDigit
+describe('isDigit', ()=> {
+  it('should return true if the string is a digit', ()=> {
+    const digit = '5';
+    const errorMessage = `'5' is a digit, should return true`;
+    assert.equal(digit.isDigit(), true, errorMessage);
+  });
+
+  it('should return false if the string is not a digit', ()=> {
+    const number = '56';
+    const errorMessage = `'56' is not a digit, should return false`;
+    assert.equal(number.isDigit(), false, errorMessage);
+  });
+  
+  it('should return a boolean value', ()=> {
+   const digit = '6';
+    const errorMessage = 'Result should be a boolean value';
+    assert.typeOf(digit.isDigit(), 'boolean', errorMessage);
+  });
+});
