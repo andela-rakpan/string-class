@@ -39,6 +39,19 @@ const StringClassExtention = {
       return String.fromCharCode( charCode + 32 );
     });
     return lowerCase;
+  },
+
+  /**
+  * ucFirst
+  * Converts first character of a string to uppercase character
+  * @return {String} Sentencecase characters
+  */
+  ucFirst(){
+    const lowerCaseFirstRegex = /^[a-z]/;
+    let upperCaseFirst = this.replace(lowerCaseFirstRegex, (character) => {
+      return character.toUpper();
+    });
+    return upperCaseFirst;
   }
 
 }
