@@ -195,3 +195,19 @@ describe('fromCurrency', ()=> {
     assert.typeOf(currency.fromCurrency(), 'number', errorMessage);
   });
 });
+
+// Test suite for method inverseCase
+describe('inverseCase', ()=> {
+  it('should return each letter as an inverse of its current case', ()=> {
+    const sentence = 'ThIs iS AndelA';
+    const result = 'tHiS Is aNDELa';
+    const errorMessage = `'ThIs iS AndelA' should return 'tHiS Is aNDELa'`;
+    assert.equal(currency.inverseCase(), result, errorMessage);
+  });
+
+  it('should return a string', ()=> {
+   const sentence = 'ThIs iS AndelA';
+    const errorMessage = 'Result should be a string';
+    assert.typeOf(sentence.inverseCase(), 'string', errorMessage);
+  });
+});
