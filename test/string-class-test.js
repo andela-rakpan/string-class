@@ -301,3 +301,30 @@ describe('isDigit', ()=> {
     assert.typeOf(digit.isDigit(), 'boolean', errorMessage);
   });
 });
+
+// Test suite for method doubleCheck
+describe('doubleCheck', ()=> {
+  it('should return true if a string contains double characters', ()=> {
+    const word = 'feet';
+    const errorMessage = `'feet' has double characters, should return true`;
+    assert.equal(word.doubleCheck(), true, errorMessage);
+  });
+
+  it('should return true if a string contains double characters', ()=> {
+    const word = 'h  i';
+    const errorMessage = `'h  i' has double characters, should return true`;
+    assert.equal(word.doubleCheck(), true, errorMessage);
+  });
+
+  it('should return false if it does not contain double characters', ()=> {
+    const word = 'andela';
+    const errorMessage = `'andela' should return false`;
+    assert.equal(word.doubleCheck(), false, errorMessage);
+  });
+  
+  it('should return a boolean value', ()=> {
+   const word = 'ii';
+    const errorMessage = 'Result should be a boolean value';
+    assert.typeOf(word.doubleCheck(), 'boolean', errorMessage);
+  });
+});
