@@ -110,27 +110,27 @@ describe('words', ()=> {
     const result = ['This', 'is', 'Andela'];
     const errorMessage = `'This is Andela' should return 
                     '[This', 'is', 'Andela']`;
-    assert.equal(sentence.words(), result, errorMessage);
+    assert.equal(sentence.words(), `${result}`, errorMessage);
   });
 
   it('should extract words only and leave out special characters', ()=> {
-    const sentence = 'This ?is _ !Andela';
+    const sentence = 'This ?is !Andela';
     const result = ['This', 'is', 'Andela'];
-    const errorMessage = `'This ?is _ !Andela' should return 
+    const errorMessage = `'This ?is !Andela' should return 
                     '[This', 'is', 'Andela']`;
-    assert.equal(sentence.words(), result, errorMessage);
+    assert.equal(sentence.words(), `${result}`, errorMessage);
   });
 
   it('should return an object', ()=> {
     const sentence = 'This is Andela';
     const errorMessage = 'Result should be an object';
-    assert.typeOf(sentence.words(), 'object', errorMessage);
+    assert.equal(typeof sentence.words(), 'object', errorMessage);
   });
 
   it('should return an instance of an array', ()=> {
     const sentence = 'This is Andela';
     const errorMessage = 'Result should be an instance of an array';
-    assert.instanceOf(sentence.words(), 'array', errorMessage);
+    assert.equal(sentence.words() instanceof Array, true, errorMessage);
   });
 });
 
