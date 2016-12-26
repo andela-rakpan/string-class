@@ -211,3 +211,26 @@ describe('inverseCase', ()=> {
     assert.typeOf(sentence.inverseCase(), 'string', errorMessage);
   });
 });
+
+// Test suite for method alternatingCase
+describe('alternatingCase', ()=> {
+  it('should return the letters in alternating cases', ()=> {
+    const word = 'Onomatopoeia';
+    const result = 'oNoMaToPoEiA';
+    const errorMessage = `'Onomatopoeia' should return 'oNoMaToPoEiA'`;
+    assert.equal(word.alternatingCase(), result, errorMessage);
+  });
+
+  it('should start with a lowercase', ()=> {
+    const word = 'AnDELa';
+    const result = 'a';
+    const errorMessage = `'AnDELa' should return 'a'`;
+    assert.equal(word.alternatingCase(), result, errorMessage);
+  });
+  
+  it('should return a string', ()=> {
+   const word = 'Onomatopoeia';
+    const errorMessage = 'Result should be a string';
+    assert.typeOf(word.alternatingCase(), 'string', errorMessage);
+  });
+});
