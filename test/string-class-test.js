@@ -257,3 +257,26 @@ describe('getMiddle', ()=> {
     assert.typeOf(word.getMiddle(), 'string', errorMessage);
   });
 });
+
+// Test suite for method numberWords
+describe('numberWords', ()=> {
+  it('should return the numbers in words', ()=> {
+    const number = '12345';
+    const result = 'one two three four five';
+    const errorMessage = `'12345' should return 'one two three four five'`;
+    assert.equal(number.numberWords(), result, errorMessage);
+  });
+
+  it('should make use of only numbers in string', ()=> {
+    const sentence = 'Cohort 21 Andela';
+    const result = 'two one';
+    const errorMessage = `'Cohort 21 Andela' should return 'two one'`;
+    assert.equal(sentence.numberWords(), result, errorMessage);
+  });
+  
+  it('should return a string', ()=> {
+   const number = '12345';
+    const errorMessage = 'Result should be a string';
+    assert.typeOf(number.numberWords(), 'string', errorMessage);
+  });
+});
