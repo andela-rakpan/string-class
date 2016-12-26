@@ -133,3 +133,19 @@ describe('words', ()=> {
     assert.instanceOf(sentence.words(), 'array', errorMessage);
   });
 });
+
+// Test suite for method wordCount
+describe('wordCount', ()=> {
+  it('should return the number of words in the string', ()=> {
+    const sentence = 'This is Andela';
+    const result = 3;
+    const errorMessage = `'This is Andela' should return 3`;
+    assert.equal(sentence.wordCount(), result, errorMessage);
+  });
+
+  it('should return a number', ()=> {
+    const sentence = 'This is Andela';
+    const errorMessage = 'Result should be a number';
+    assert.typeOf(sentence.wordCount(), 'number', errorMessage);
+  });
+});
