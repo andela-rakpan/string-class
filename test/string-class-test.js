@@ -172,3 +172,26 @@ describe('toCurrency', ()=> {
     assert.typeOf(currency.toCurrency(), 'string', errorMessage);
   });
 });
+
+// Test suite for method fromCurrency
+describe('fromCurrency', ()=> {
+  it('should return a number representation of the Currency String', ()=> {
+    const currency = '123,456.789';
+    const result = 123456.789;
+    const errorMessage = `'123,456.789' should return 123456.789`;
+    assert.equal(currency.fromCurrency(), result, errorMessage);
+  });
+
+  it('should return a number representation of the Currency String', ()=> {
+    const currency = '123.456';
+    const result = 123.456;
+    const errorMessage = `'123.456' should return 123.456`;
+    assert.equal(currency.fromCurrency(), result, errorMessage);
+  });
+
+  it('should return a number', ()=> {
+    const currency = '123,456.789';
+    const errorMessage = 'Result should be a number';
+    assert.typeOf(currency.fromCurrency(), 'number', errorMessage);
+  });
+});
