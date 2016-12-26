@@ -52,6 +52,16 @@ const StringClassExtention = {
       return character.toUpper();
     });
     return upperCaseFirst;
+  }, 
+
+  /**
+  * isQuestion
+  * Checks if a string is a question (ends with '?')
+  * @return {Boolean} true if it ends with '?' or false otherwise
+  */
+  isQuestion(){
+    const questionRegex = /\?$/;
+    return questionRegex.test(this);
   }
 
 }
