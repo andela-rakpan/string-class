@@ -234,3 +234,26 @@ describe('alternatingCase', ()=> {
     assert.typeOf(word.alternatingCase(), 'string', errorMessage);
   });
 });
+
+// Test suite for method getMiddle
+describe('getMiddle', ()=> {
+  it('should return the character(s) in the middle of the string', ()=> {
+    const word = 'Raphael';
+    const result = 'h';
+    const errorMessage = `'Raphael' should return 'h'`;
+    assert.equal(word.getMiddle(), result, errorMessage);
+  });
+
+  it('should return the character(s) in the middle of the string', ()=> {
+    const word = 'Andela';
+    const result = 'de';
+    const errorMessage = `'Andela' should return 'de'`;
+    assert.equal(word.getMiddle(), result, errorMessage);
+  });
+  
+  it('should return a string', ()=> {
+   const word = 'Onomatopoeia';
+    const errorMessage = 'Result should be a string';
+    assert.typeOf(word.getMiddle(), 'string', errorMessage);
+  });
+});
