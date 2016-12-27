@@ -127,11 +127,11 @@ const StringClassExtention = {
   */
   getMiddle(){
     const count = this.length;
-    const mid = Math.floor(count / 2);
+    const middle = Math.floor(count / 2);
     if ( count  % 2 === 0) {
-      return this[mid - 1] + this[mid];
+      return this[middle - 1] + this[middle];
     } else {
-      return this[mid];
+      return this[middle];
     }
   }, 
 
@@ -168,9 +168,18 @@ const StringClassExtention = {
   * @return {Boolean} true if digit, false otherwise
   */
   isDigit(){
-    const numberRegex = /\D/g;
-    const digit = this.replace(numberRegex, '');
-    return (digit.length === 1) ? true : false;
+    const digitRegex = /^\d$/;
+    return digitRegex.test(this);
+  }, 
+
+  /**
+  * doubleCheck
+  * Determines if a string contains double characters
+  * @return {Boolean} true if it contains double characters, false otherwise
+  */
+  doubleCheck(){
+    const doubleCheckRegex = /(.)\1/g;
+    return doubleCheckRegex.test(this);
   }
 }
 
