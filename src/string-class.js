@@ -160,6 +160,17 @@ const StringClassExtention = {
       return ` ${words[number]}`;
     });    
     return numberWords.trim();
+  }, 
+
+  /**
+  * isDigit
+  * Determines if the string is a digit
+  * @return {Boolean} true if digit, false otherwise
+  */
+  isDigit(){
+    const numberRegex = /\D/g;
+    const digit = this.replace(numberRegex, '');
+    return (digit.length === 1) ? true : false;
   }
 }
 
