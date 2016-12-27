@@ -84,6 +84,18 @@ const StringClassExtention = {
   }, 
 
   /**
+  * toCurrency
+  * Converts strings of numbers to currency representation
+  * @return {String} currency representation of a string
+  */
+  toCurrency(){
+    const currencyRegex = /\d+\.\d{2}/g;
+    const lookAheadCurrencyRegex = /(\d)(?=(\d{3})+(?!\d))/g;
+    const number = this.match(currencyRegex).join('');
+    return number.replace(lookAheadCurrencyRegex, '$1,');
+  }, 
+
+  /**
   * inverseCase
   * Converts each letter to the inverse of its current case
   * @return {String} inverse characters of the string
