@@ -96,6 +96,19 @@ const StringClassExtention = {
   }, 
 
   /**
+  * fromCurrency
+  * Converts currency representation to number representation 
+  * @return {Number} number representation of a currency string
+  */
+  fromCurrency(){
+    const commaRegex = /\,/g;
+    const numberCurrencyRegex = /\d+\.\d{2}/g;
+    const number = this.replace(commaRegex,'')
+      .match(numberCurrencyRegex).join('')
+    return Number(number);
+  }, 
+
+  /**
   * inverseCase
   * Converts each letter to the inverse of its current case
   * @return {String} inverse characters of the string
