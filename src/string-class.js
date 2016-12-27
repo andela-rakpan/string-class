@@ -133,6 +133,33 @@ const StringClassExtention = {
     } else {
       return this[mid];
     }
+  }, 
+
+  /**
+  * numberWords
+  * Converts numberic literals to string literals (words)
+  * @return {String} The numbers in words
+  */
+  numberWords(){
+    const words = [
+      'zero',
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight',
+      'nine'
+    ];
+    let numberRegex = /\D/g;
+    const numbers = this.replace(numberRegex, '');
+    numberRegex = /[0-9]/g;
+    const numberWords = numbers.replace(numberRegex, (number)=> {
+      return ` ${words[number]}`;
+    });    
+    return numberWords.trim();
   }
 }
 
