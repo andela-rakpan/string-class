@@ -154,15 +154,15 @@ describe('wordCount', ()=> {
 describe('toCurrency', ()=> {
   it('should return a currency representation of the String', ()=> {
     const currency = '123456.789';
-    const result = '123,456.789';
-    const errorMessage = `'123456.789' should return '123,456.789'`;
+    const result = '123,456.78';
+    const errorMessage = `'123456.789' should return '123,456.78'`;
     assert.equal(currency.toCurrency(), result, errorMessage);
   });
 
   it('should return a currency representation of the String', ()=> {
     const currency = '123.456';
-    const result = '123.456';
-    const errorMessage = `'123.456' should return '123.456'`;
+    const result = '123.45';
+    const errorMessage = `'123.456' should return '123.45'`;
     assert.equal(currency.toCurrency(), result, errorMessage);
   });
 
@@ -176,16 +176,16 @@ describe('toCurrency', ()=> {
 // Test suite for method fromCurrency
 describe('fromCurrency', ()=> {
   it('should return a number representation of the Currency String', ()=> {
-    const currency = '123,456.789';
-    const result = 123456.789;
-    const errorMessage = `'123,456.789' should return 123456.789`;
+    const currency = '123,456.78';
+    const result = 123456.78;
+    const errorMessage = `'123,456.789' should return 123456.78`;
     assert.equal(currency.fromCurrency(), result, errorMessage);
   });
 
   it('should return a number representation of the Currency String', ()=> {
-    const currency = '123.456';
-    const result = 123.456;
-    const errorMessage = `'123.456' should return 123.456`;
+    const currency = '123.45';
+    const result = 123.45;
+    const errorMessage = `'123.456' should return 123.45`;
     assert.equal(currency.fromCurrency(), result, errorMessage);
   });
 
@@ -202,7 +202,7 @@ describe('inverseCase', ()=> {
     const sentence = 'ThIs iS AndelA';
     const result = 'tHiS Is aNDELa';
     const errorMessage = `'ThIs iS AndelA' should return 'tHiS Is aNDELa'`;
-    assert.equal(currency.inverseCase(), result, errorMessage);
+    assert.equal(sentence.inverseCase(), result, errorMessage);
   });
 
   it('should return a string', ()=> {
@@ -223,9 +223,9 @@ describe('alternatingCase', ()=> {
 
   it('should start with a lowercase', ()=> {
     const word = 'AnDELa';
-    const result = 'a';
-    const errorMessage = `'AnDELa' should return 'a'`;
-    assert.equal(word.alternatingCase(), result, errorMessage);
+    const result = 'aNdElA';
+    const errorMessage = `'A' should return 'a'`;
+    assert.equal(word.alternatingCase()[0], result[0], errorMessage);
   });
   
   it('should return a string', ()=> {
@@ -237,7 +237,7 @@ describe('alternatingCase', ()=> {
 
 // Test suite for method getMiddle
 describe('getMiddle', ()=> {
-  it('should return the character(s) in the middle of the string', ()=> {
+  it('should return the character in the middle of the string', ()=> {
     const word = 'Raphael';
     const result = 'h';
     const errorMessage = `'Raphael' should return 'h'`;
