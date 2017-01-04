@@ -152,16 +152,23 @@ describe('wordCount', () => {
 // Test suite for method toCurrency
 describe('toCurrency', () => {
   it('should return a currency representation of the String', () => {
-    const currency = '123456.789';
+    const currency = '123456.783';
     const result = '123,456.78';
-    const errorMessage = '`123456.789` should return `123,456.78`';
+    const errorMessage = '`123456.783` should return `123,456.78`';
     assert.equal(currency.toCurrency(), result, errorMessage);
   });
 
   it('should return a currency representation of the String', () => {
-    const currency = '123.456';
+    const currency = '123.451';
     const result = '123.45';
-    const errorMessage = '`123.456` should return `123.45`';
+    const errorMessage = '`123.45` should return `123.45`';
+    assert.equal(currency.toCurrency(), result, errorMessage);
+  });
+
+  it('should return an approximated currency of 2 decimal places', () => {
+    const currency = '8423534.4578';
+    const result = '8,423,534.46';
+    const errorMessage = '`8423534.4578` should return `8,423,534.46`';
     assert.equal(currency.toCurrency(), result, errorMessage);
   });
 
@@ -177,7 +184,7 @@ describe('fromCurrency', () => {
   it('should return a number representation of the Currency String', () => {
     const currency = '123,456.78';
     const result = 123456.78;
-    const errorMessage = '`123,456.789` should return 123456.78';
+    const errorMessage = '`123,456.78` should return 123456.78';
     assert.equal(currency.fromCurrency(), result, errorMessage);
   });
 

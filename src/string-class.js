@@ -86,9 +86,19 @@ const StringClassExtention = {
   * @return {String} currency representation of a string
   */
   toCurrency() {
-    const currencyRegex = /\d+\.\d{2}/g;
+    const realNumberRegex = /\d+\.\d+/g;
+    const validIntegerRegex = /\d+\./g;
+    const integerRegex = /\d+/g;
+    let wholenumber = 0;
+    if (realNumberRegex.test(this)) {
+      wholenumber = this.match(realNumberRegex).join('');
+    } else if (validIntegerRegex.test(this)) {
+      wholenumber = this.match(validIntegerRegex).join('');
+    } else if (integerRegex.test(this)) {
+      wholenumber = this.match(integerRegex).join('');
+    }
+    const number = Number(wholenumber).toFixed(2);
     const lookAheadCurrencyRegex = /(\d)(?=(\d{3})+(?!\d))/g;
-    const number = this.match(currencyRegex).join('');
     return number.replace(lookAheadCurrencyRegex, '$1,');
   },
 
@@ -100,8 +110,11 @@ const StringClassExtention = {
   fromCurrency() {
     const commaRegex = /[,]/g;
     const numberCurrencyRegex = /\d+\.\d{2}/g;
-    const number = this.replace(commaRegex, '')
-      .match(numberCurrencyRegex).join('');
+    let number = 0;
+    if (numberCurrencyRegex.test(this)) {
+      number = this.replace(commaRegex, '')
+        .match(numberCurrencyRegex).join('');
+    }
     return Number(number);
   },
 
