@@ -92,9 +92,11 @@ const StringClassExtention = {
     let wholenumber = 0;
     if (realNumberRegex.test(this)) {
       wholenumber = this.match(realNumberRegex).join('');
-    } else if (validIntegerRegex.test(this)) {
+    }
+    if (validIntegerRegex.test(this)) {
       wholenumber = this.match(validIntegerRegex).join('');
-    } else if (integerRegex.test(this)) {
+    }
+    if (integerRegex.test(this)) {
       wholenumber = this.match(integerRegex).join('');
     }
     const number = Number(wholenumber).toFixed(2);
@@ -111,10 +113,8 @@ const StringClassExtention = {
     const commaRegex = /[,]/g;
     const numberCurrencyRegex = /\d+\.\d{2}/g;
     let number = 0;
-    if (numberCurrencyRegex.test(this)) {
-      number = this.replace(commaRegex, '')
+    number = this.replace(commaRegex, '')
         .match(numberCurrencyRegex).join('');
-    }
     return Number(number);
   },
 
