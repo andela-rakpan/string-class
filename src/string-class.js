@@ -87,18 +87,8 @@ const StringClassExtention = {
   */
   toCurrency() {
     const realNumberRegex = /\d+\.\d+/g;
-    const validIntegerRegex = /\d+\./g;
-    const integerRegex = /\d+/g;
     let wholenumber = 0;
-    if (realNumberRegex.test(this)) {
-      wholenumber = this.match(realNumberRegex).join('');
-    }
-    if (validIntegerRegex.test(this)) {
-      wholenumber = this.match(validIntegerRegex).join('');
-    }
-    if (integerRegex.test(this)) {
-      wholenumber = this.match(integerRegex).join('');
-    }
+    wholenumber = this.match(realNumberRegex).join('');
     const number = Number(wholenumber).toFixed(2);
     const lookAheadCurrencyRegex = /(\d)(?=(\d{3})+(?!\d))/g;
     return number.replace(lookAheadCurrencyRegex, '$1,');
