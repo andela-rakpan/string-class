@@ -4,10 +4,6 @@
 #string-class
 Extends the javascript _String_ Class using prototype programming to support more string manipulations.
 
-**How to Install**
-> - Fork or clone the repo to your folder.
-> - Change directory: <kbd> cd string-class </kbd>
-> - Run <kbd> npm install </kdb>
 
 **Methods added to extend String Class**
 
@@ -42,4 +38,21 @@ Extends the javascript _String_ Class using prototype programming to support mor
 >* **doubleCheck** - Determines if a string contains double characters. Returns (boolean) true if it contains double characters, false otherwise.
 
 **Run the test**
-> - Run <kbd> npm test </kdb>
+> - Run `npm test`
+
+**Technologies Used**
+* Javascript (ES6)
+* Nodejs
+* Mocha
+
+**How to Contribute**
+> - Fork or clone the repo to your folder.
+> - Change directory: `cd string-class`
+> - Run `npm install`
+> - Create a feature branch and work on it.
+> - Push to the remote branch.
+> - Open a Pull Request to develop branch. 
+
+**Limitations**
+* The program does not run on webbrowsers.
+* It is intended to be used by developers / techinical persons.
