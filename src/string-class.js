@@ -9,7 +9,7 @@ const StringClassExtention = {
   * @return {Boolean} true if vowels exist or false otherwise
   */
   hasVowels() {
-    const vowelsRegex = /[aeiou]/g;
+    const vowelsRegex = /[aeiou]/gi;
     return vowelsRegex.test(this);
   },
 
@@ -57,7 +57,7 @@ const StringClassExtention = {
   * @return {Boolean} true if it ends with '?' or false otherwise
   */
   isQuestion() {
-    const questionRegex = /\?$/;
+    const questionRegex = /^[\w+ .-]+\?$/;
     return questionRegex.test(this);
   },
 
@@ -155,7 +155,7 @@ const StringClassExtention = {
 
   /**
   * numberWords
-  * Converts numberic literals to string literals (words)
+  * Converts numeric literals to string literals (words)
   * @return {String} The numbers in words
   */
   numberWords() {
