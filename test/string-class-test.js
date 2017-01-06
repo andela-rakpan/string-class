@@ -10,13 +10,13 @@ require('../src/string-class.js');
 describe('hasVowels', () => {
   it('should return true if the string contains vowels', () => {
     const word = 'Raphael';
-    const errorMessage = ' `Raphael` contains vowels, should return true';
+    const errorMessage = `'${word}' contains vowels, should return true`;
     assert.equal(word.hasVowels(), true, errorMessage);
   });
 
   it('should return false if the string does not contains vowels', () => {
     const word = 'Try';
-    const errorMessage = '`Try` does not contain vowel, should return false';
+    const errorMessage = `'${word}' does not contain vowel, should return false`;
     assert.equal(word.hasVowels(), false, errorMessage);
   });
 
@@ -32,7 +32,7 @@ describe('toUpper', () => {
   it('should return all characters as uppercase characters', () => {
     const word = 'Raphael';
     const result = 'RAPHAEL';
-    const errorMessage = '`Raphael` should return `RAPHAEL`';
+    const errorMessage = `${word}' should return '${result}'`;
     assert.equal(word.toUpper(), result, errorMessage);
   });
 
@@ -48,7 +48,7 @@ describe('toLower', () => {
   it('should return all characters as lowercase characters', () => {
     const word = 'RapHAEl';
     const result = 'raphael';
-    const errorMessage = '`RapHAEl` should return `raphael`';
+    const errorMessage = `'${word}' should return '${result}'`;
     assert.equal(word.toLower(), result, errorMessage);
   });
 
@@ -63,14 +63,15 @@ describe('toLower', () => {
 describe('ucFirst', () => {
   it('should return the first character as uppercase', () => {
     const word = 'raphael';
-    const errorMessage = '`raphael` should return `R` as first character';
-    assert.equal(word.ucFirst()[0], 'R', errorMessage);
+    const result = 'R';
+    const errorMessage = `'${word}' should return '${result}' as first character`;
+    assert.equal(word.ucFirst()[0], result, errorMessage);
   });
 
   it('should not alter other characters after first character', () => {
     const word = 'raPHaEl';
     const result = 'RaPHaEl';
-    const errorMessage = '`raPHaEl` should return `RaPHaEl`';
+    const errorMessage = `${word}' should return '${result}'`;
     assert.equal(word.ucFirst(), result, errorMessage);
   });
 
@@ -85,14 +86,20 @@ describe('ucFirst', () => {
 describe('isQuestion', () => {
   it('should return true if the string is a question', () => {
     const question = 'Are you Human?';
-    const errorMessage = '`Are you Human?` should return true';
+    const errorMessage = `${question}' should return true`;
     assert.equal(question.isQuestion(), true, errorMessage);
   });
 
   it('should return false if the string is not a valid question', () => {
-    const invalidQuestion = 'Are you? Human';
-    const errorMessage = '`Are you? Human` should return false';
+    const invalidQuestion = 'Are you? Human?';
+    const errorMessage = `${invalidQuestion}' should return false`;
     assert.equal(invalidQuestion.isQuestion(), false, errorMessage);
+  });
+
+  it('should allow for some special characters (+ - .) in a question', () => {
+    const validQuestion = 'Is the number -4.0 or +4.0?';
+    const errorMessage = `${validQuestion}' should return true`;
+    assert.equal(validQuestion.isQuestion(), true, errorMessage);
   });
 
   it('should return a boolean result', () => {
@@ -107,16 +114,14 @@ describe('words', () => {
   it('should return a list of the words in the string, as an Array', () => {
     const sentence = 'This is Andela';
     const result = ['This', 'is', 'Andela'];
-    const errorMessage = `'This is Andela' should return 
-                    '[This', 'is', 'Andela']`;
+    const errorMessage = `${sentence}' should return '${result}'`;
     assert.equal(sentence.words(), `${result}`, errorMessage);
   });
 
   it('should extract words only and leave out special characters', () => {
     const sentence = 'This ?is _ !Andela';
     const result = ['This', 'is', 'Andela'];
-    const errorMessage = `'This ?is _ !Andela' should return 
-                    '[This', 'is', 'Andela']`;
+    const errorMessage = `${sentence}' should return '${result}'`;
     assert.equal(sentence.words(), `${result}`, errorMessage);
   });
 
@@ -138,7 +143,7 @@ describe('wordCount', () => {
   it('should return the number of words in the string', () => {
     const sentence = 'This is Andela';
     const result = 3;
-    const errorMessage = '`This is Andela` should return 3';
+    const errorMessage = `${sentence}' should return '${result}'`;
     assert.equal(sentence.wordCount(), result, errorMessage);
   });
 
@@ -154,21 +159,21 @@ describe('toCurrency', () => {
   it('should return a currency representation of the String', () => {
     const currency = '123456.783';
     const result = '123,456.78';
-    const errorMessage = '`123456.783` should return `123,456.78`';
+    const errorMessage = `${currency}' should return '${result}'`;
     assert.equal(currency.toCurrency(), result, errorMessage);
   });
 
   it('should return a currency representation of the String', () => {
     const currency = '123.451';
     const result = '123.45';
-    const errorMessage = '`123.45` should return `123.45`';
+    const errorMessage = `${currency}' should return '${result}'`;
     assert.equal(currency.toCurrency(), result, errorMessage);
   });
 
   it('should return an approximated currency of 2 decimal places', () => {
     const currency = '8423534.4578';
     const result = '8,423,534.46';
-    const errorMessage = '`8423534.4578` should return `8,423,534.46`';
+    const errorMessage = `${currency}' should return '${result}'`;
     assert.equal(currency.toCurrency(), result, errorMessage);
   });
 
@@ -184,14 +189,14 @@ describe('fromCurrency', () => {
   it('should return a number representation of the Currency String', () => {
     const currency = '123,456.78';
     const result = 123456.78;
-    const errorMessage = '`123,456.78` should return 123456.78';
+    const errorMessage = `${currency}' should return '${result}'`;
     assert.equal(currency.fromCurrency(), result, errorMessage);
   });
 
   it('should return a number representation of the Currency String', () => {
     const currency = '123.45';
     const result = 123.45;
-    const errorMessage = '`123.456` should return 123.45';
+    const errorMessage = `${currency}' should return '${result}'`;
     assert.equal(currency.fromCurrency(), result, errorMessage);
   });
 
@@ -207,7 +212,7 @@ describe('inverseCase', () => {
   it('should return each letter as an inverse of its current case', () => {
     const sentence = 'ThIs iS AndelA';
     const result = 'tHiS Is aNDELa';
-    const errorMessage = '`ThIs iS AndelA` should return `tHiS Is aNDELa`';
+    const errorMessage = `${sentence}' should return '${result}'`;
     assert.equal(sentence.inverseCase(), result, errorMessage);
   });
 
@@ -223,15 +228,15 @@ describe('alternatingCase', () => {
   it('should return the letters in alternating cases', () => {
     const word = 'Onomatopoeia';
     const result = 'oNoMaToPoEiA';
-    const errorMessage = '`Onomatopoeia` should return `oNoMaToPoEiA`';
+    const errorMessage = `${word}' should return '${result}'`;
     assert.equal(word.alternatingCase(), result, errorMessage);
   });
 
   it('should start with a lowercase', () => {
     const word = 'AnDELa';
-    const result = 'aNdElA';
-    const errorMessage = '`AnDELa` should return `a` as first character';
-    assert.equal(word.alternatingCase()[0], result[0], errorMessage);
+    const result = 'a';
+    const errorMessage = `'${word}' should return '${result}' as first character`;
+    assert.equal(word.alternatingCase()[0], result, errorMessage);
   });
 
   it('should return a string', () => {
@@ -246,14 +251,14 @@ describe('getMiddle', () => {
   it('should return the character in the middle of the string', () => {
     const word = 'Raphael';
     const result = 'h';
-    const errorMessage = '`Raphael` should return `h`';
+    const errorMessage = `${word}' should return '${result}' as middle character`;
     assert.equal(word.getMiddle(), result, errorMessage);
   });
 
   it('should return the character(s) in the middle of the string', () => {
     const word = 'Andela';
     const result = 'de';
-    const errorMessage = '`Andela` should return `de`';
+    const errorMessage = `${word}' should return '${result}' as middle characters`;
     assert.equal(word.getMiddle(), result, errorMessage);
   });
 
@@ -269,14 +274,14 @@ describe('numberWords', () => {
   it('should return the numbers in words', () => {
     const number = '12345';
     const result = 'one two three four five';
-    const errorMessage = '`12345` should return `one two three four five`';
+    const errorMessage = `${number}' should return '${result}'`;
     assert.equal(number.numberWords(), result, errorMessage);
   });
 
   it('should make use of only numbers in string', () => {
     const sentence = 'Cohort 21 Andela';
     const result = 'two one';
-    const errorMessage = '`Cohort 21 Andela` should return `two one`';
+    const errorMessage = `${sentence}' should return '${result}'`;
     assert.equal(sentence.numberWords(), result, errorMessage);
   });
 
@@ -291,13 +296,13 @@ describe('numberWords', () => {
 describe('isDigit', () => {
   it('should return true if the string is a digit', () => {
     const digit = '5';
-    const errorMessage = '`5` is a digit, should return true';
+    const errorMessage = `'${digit}' is a digit, should return true`;
     assert.equal(digit.isDigit(), true, errorMessage);
   });
 
   it('should return false if the string is not a digit', () => {
     const number = '56';
-    const errorMessage = '`56` is not a digit, should return false';
+    const errorMessage = `'${number}' is not a digit, should return false`;
     assert.equal(number.isDigit(), false, errorMessage);
   });
 
@@ -312,19 +317,19 @@ describe('isDigit', () => {
 describe('doubleCheck', () => {
   it('should return true if a string contains double characters', () => {
     const word = 'feet';
-    const errorMessage = '`feet` has double characters, should return true';
+    const errorMessage = `'${word}' has double characters, should return true`;
     assert.equal(word.doubleCheck(), true, errorMessage);
   });
 
   it('should return true if a string contains double characters', () => {
     const word = 'h  i';
-    const errorMessage = '`h  i` has double characters, should return true';
+    const errorMessage = `'${word}' has double characters, should return true`;
     assert.equal(word.doubleCheck(), true, errorMessage);
   });
 
   it('should return false if it does not contain double characters', () => {
     const word = 'andela';
-    const errorMessage = '`andela` should return false';
+    const errorMessage = `'${word}' should return false`;
     assert.equal(word.doubleCheck(), false, errorMessage);
   });
 
