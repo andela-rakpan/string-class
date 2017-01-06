@@ -20,11 +20,10 @@ const StringClassExtention = {
   */
   toUpper() {
     const lowerCaseRegex = /[a-z]/g;
-    const upperCase = this.replace(lowerCaseRegex, (character) => {
+    return this.replace(lowerCaseRegex, (character) => {
       const charCode = character.charCodeAt(0);
       return String.fromCharCode(charCode - 32);
     });
-    return upperCase;
   },
 
   /**
@@ -34,11 +33,10 @@ const StringClassExtention = {
   */
   toLower() {
     const upperCaseRegex = /[A-Z]/g;
-    const lowerCase = this.replace(upperCaseRegex, (character) => {
+    return this.replace(upperCaseRegex, (character) => {
       const charCode = character.charCodeAt(0);
       return String.fromCharCode(charCode + 32);
     });
-    return lowerCase;
   },
 
   /**
