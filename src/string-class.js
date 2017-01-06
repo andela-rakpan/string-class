@@ -1,7 +1,7 @@
 'use strict';
 
 /** String Object that extends String Class */
-const StringClassExtention = {
+const StringClassExtension = {
 
   /**
   * hasVowels
