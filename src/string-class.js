@@ -196,4 +196,4 @@ const StringClassExtension = {
   }
 };
 
-Object.assign(String.prototype, StringClassExtention);
+Object.assign(String.prototype, StringClassExtension);
