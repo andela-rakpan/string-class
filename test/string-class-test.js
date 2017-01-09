@@ -16,7 +16,7 @@ describe('hasVowels', () => {
 
   it('should return false if the string does not contains vowels', () => {
     const word = 'Try';
-    const errorMessage = `'${word}' does not contain vowel, should return false`;
+    const errorMessage = `'${word}' contains no vowel, should return false`;
     assert.equal(word.hasVowels(), false, errorMessage);
   });
 
@@ -64,7 +64,7 @@ describe('ucFirst', () => {
   it('should return the first character as uppercase', () => {
     const word = 'raphael';
     const result = 'R';
-    const errorMessage = `'${word}' should return '${result}' as first character`;
+    const errorMessage = `'${word}' should return '${result}'`;
     assert.equal(word.ucFirst()[0], result, errorMessage);
   });
 
@@ -235,7 +235,7 @@ describe('alternatingCase', () => {
   it('should start with a lowercase', () => {
     const word = 'AnDELa';
     const result = 'a';
-    const errorMessage = `'${word}' should return '${result}' as first character`;
+    const errorMessage = `'${word}' should return '${result}'`;
     assert.equal(word.alternatingCase()[0], result, errorMessage);
   });
 
@@ -251,14 +251,14 @@ describe('getMiddle', () => {
   it('should return the character in the middle of the string', () => {
     const word = 'Raphael';
     const result = 'h';
-    const errorMessage = `${word}' should return '${result}' as middle character`;
+    const errorMessage = `${word}' should return '${result}')`;
     assert.equal(word.getMiddle(), result, errorMessage);
   });
 
   it('should return the character(s) in the middle of the string', () => {
     const word = 'Andela';
     const result = 'de';
-    const errorMessage = `${word}' should return '${result}' as middle characters`;
+    const errorMessage = `${word}' should return '${result}'`;
     assert.equal(word.getMiddle(), result, errorMessage);
   });
 
