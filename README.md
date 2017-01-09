@@ -55,4 +55,4 @@ Extends the javascript _String_ Class using prototype programming to support mor
 
 **Limitations**
 * The program does not run on webbrowsers.
-* It is intended to be used by developers / techinical persons.
+* It is intended to be used by developers / technical persons.
